@@ -92,5 +92,24 @@ td {
 }
 
 @media (max-width: 768px) {
-    .stats-grid { grid-template-columns: 1fr; }
+    body { padding: 15px; }
+    .admin-container { padding: 25px 15px; }
+    header h1 { font-size: 2.5rem; }
+    
+    .stats-grid { grid-template-columns: 1fr; gap: 15px; }
+    .stat-card .value { font-size: 2.5rem; }
+    
+    .table-container { 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch;
+        margin-top: 25px;
+    }
+    
+    table { font-size: 1.4rem; min-width: 400px; }
+    th, td { padding: 10px 5px; }
+}
+
+@media (max-width: 480px) {
+    header h1 { font-size: 2rem; }
+    .stat-card .label { font-size: 1.2rem; }
 }
