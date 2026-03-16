@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Nanum+Pen+Script&display=swap');
+
+:root {
+    --bg: #121214;
+    --paper: #f4f1ea;
+    --ink: #1a1a1a;
+    --primary: #c94b4b;
+    --dim: #888;
+    --border: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Texture Overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Nav */
+nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.nav-links { display: flex; gap: 40px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 3px; color: var(--dim); }
+
+/* Hero Section */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.9;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--dim);
+    max-width: 450px;
+    margin-bottom: 50px;
+}
+
+.hero-image {
+    position: relative;
+    padding: 20px;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: 1px solid rgba(255,255,255,0.1);
+    transform: rotate(2deg);
+    z-index: -1;
+}
+
+.sketch-frame {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    transform: rotate(-1deg);
+}
+
+.sketch-frame img {
+    width: 100%;
+    filter: grayscale(1) contrast(1.1);
+    mix-blend-mode: multiply;
+}
+
+/* The Letter Section (Advanced Version) */
+.invitation-wrap {
+    background: #fff;
+    color: var(--ink);
+    padding: 120px 0;
+    margin-top: 150px;
+    position: relative;
+}
+
+.invitation-wrap::before {
+    content: '';
+    position: absolute;
+    top: -50px; left: 0; width: 100%; height: 100px;
+    background: #fff;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+.letter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+}
+
+.letter-content h3 { font-size: 4rem; color: var(--primary); margin-bottom: 20px; }
+.letter-content .msg { font-size: 3.5rem; line-height: 1.1; margin-bottom: 40px; }
+
+.movie-specs {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin: 60px 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 30px 0;
+    font-size: 2rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.btn-sketch {
+    background: transparent;
+    border: 2px solid var(--ink);
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 3rem;
+    padding: 10px 60px;
+    cursor: pointer;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    transition: all 0.3s;
+}
+
+.btn-sketch.yes:hover { background: var(-- ink); color: #fff; transform: translateY(-10px) rotate(2deg); }
+.btn-sketch.no:hover { border-style: dashed; opacity: 0.5; }
+
+/* Name Overlay */
+.overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 10000;
+}
+
+.overlay.active { display: flex; }
+
+.modal-box {
+    background: #fff;
+    padding: 80px;
+    color: var(--ink);
+    font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+}
+
+.modal-box input {
+    display: block;
+    width: 300px;
+    margin: 40px auto;
+    border: none;
+    border-bottom: 2px solid var(--ink);
+    font-size: 2.5rem;
+    font-family: inherit;
+    text-align: center;
+    outline: none;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero-text p { margin: 0 auto 50px; }
+    .hero-text h1 { font-size: 4rem; }
+    .movie-specs { flex-direction: column; gap: 20px; }
+}

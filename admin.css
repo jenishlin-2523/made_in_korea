@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+:root {
+    --paper: #f5f3ef;
+    --graphite: #2f2f2f;
+    --sketch-red: #c94b4b;
+    --sketch-gray: #d6d2cc;
+}
+
+body {
+    background-color: #e0ddd7;
+    background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+    font-family: 'Nanum Pen Script', cursive;
+    padding: 40px;
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 50px;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+}
+
+.admin-container::before {
+    content: '';
+    position: absolute;
+    top: -5px; left: -5px; right: -5px; bottom: -5px;
+    border: 2px solid var(--graphite);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+header h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--graphite);
+    display: inline-block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed var(--graphite);
+    border-radius: 10px;
+}
+
+.stat-card .label { font-size: 1.5rem; opacity: 0.7; }
+.stat-card .value { font-size: 3.5rem; display: block; }
+
+.table-container {
+    margin-top: 40px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.8rem;
+}
+
+th {
+    text-align: left;
+    border-bottom: 2px solid var(--graphite);
+    padding: 10px;
+}
+
+td {
+    padding: 15px 10px;
+    border-bottom: 1px dashed var(--sketch-gray);
+}
+
+.resp-yes { color: var(--sketch-red); font-weight: bold; }
+.resp-no { color: #888; }
+
+.refresh-btn {
+    background: transparent;
+    border: 1px solid var(--graphite);
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.8rem;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}

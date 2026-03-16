@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Response Tracker</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="admin-container">
+        <header>
+            <h1>Response Dashboard</h1>
+            <p>Tracking responses for: <strong>Made In Korea</strong></p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="label">Total Responses</span>
+                <span class="value" id="total-count">0</span>
+            </div>
+            <div class="stat-card positive">
+                <span class="label">Confirmations (YES)</span>
+                <span class="value" id="yes-count">0</span>
+            </div>
+            <div class="stat-card negative">
+                <span class="label">Rejections (NO)</span>
+                <span class="value" id="no-count">0</span>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="responses-table">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Response</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Rows will be added here -->
+                    <tr>
+                        <td colspan="3" style="text-align: center;">Loading data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="margin-top: 20px; text-align: right;">
+            <button class="refresh-btn" onclick="fetchResponses()">Refresh Data</button>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

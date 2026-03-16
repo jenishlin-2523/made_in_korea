@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADE IN KOREA | Portfolio Screening</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">M.I.K</div>
+            <div class="nav-links">
+                <span>Directing</span>
+                <span>Story</span>
+                <span>Contact</span>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <p>On Netflix</p>
+                    <h1>A Story Written in Seoul</h1>
+                    <p>
+                        Explore the cinematic journey of "Made In Korea," a Rise East production directed by RA.
+                        Karthik. A portfolio of love, discovery, and the vibrant life of Seoul.
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <div class="sketch-frame">
+                        <img src="assets/movie_main.jpg" alt="Main Poster Sketch">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- The Personal Invitation Section -->
+    <section class="invitation-wrap">
+        <div class="container">
+            <div class="letter-content">
+                <h3>A Special Note</h3>
+                <p class="to">Hi Herin,</p>
+                <div class="msg">"Can you join today's Night with me?"</div>
+
+                <p style="font-size: 1.8rem; opacity: 0.7;">Messaging regarding a movie show at tonight's premiere.</p>
+
+                <div class="movie-specs">
+                    <div class="spec">
+                        <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Movie</strong>
+                        Made In Korea
+                    </div>
+                    <div class="spec">
+                        <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Genre</strong>
+                        Love
+                    </div>
+                    <div class="spec">
+                        <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Time</strong>
+                        11:00 PM
+                    </div>
+                </div>
+
+                <div class="response-section">
+                    <div class="btn-group">
+                        <button class="btn-sketch yes" onclick="handleResponse('YES')">Yes</button>
+                        <button class="btn-sketch no" onclick="handleResponse('NO')">No</button>
+                    </div>
+                    <p id="status-msg"></p>
+                </div>
+
+                <div class="signature" style="margin-top: 80px; text-align: right;">
+                    <p style="font-size: 1.5rem;">Yours truly,</p>
+                    <p style="font-size: 4rem; color: var(--primary);">Jenishlin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="overlay" id="name-overlay">
+        <div class="modal-box">
+            <h2 style="font-size: 3.5rem;">One Sec...</h2>
+            <p style="font-size: 2rem;">May I have your name for the guest list?</p>
+            <input type="text" id="user-name" placeholder="Guest Name" required>
+            <button id="submit-response-btn" class="btn-sketch yes" style="width: 100%;" onclick="submitFinalResponse()">Book My Seat</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
