@@ -234,6 +234,11 @@ nav {
     transform: rotate3d(0, 0, 0, 0deg) scale(1.02);
 }
 
+/* Hero Image Hover Effects */
+.sketch-frame:hover {
+    transform: rotate3d(0, 0, 0, 0deg) scale(1.02);
+}
+
 .sketch-frame img {
     width: 100%;
     filter: sepia(0.2) contrast(1.1);
@@ -587,23 +592,26 @@ nav {
 .modal-box {
     background: #fff;
     color: #1a1a1a;
-    padding: 80px;
+    padding: 40px;
     text-align: center;
     max-width: 600px;
-    width: 100%;
+    width: 90%;
     position: relative;
     box-shadow: 0 40px 100px rgba(0,0,0,0.5);
 }
 
+.modal-box h2 { font-size: 2.5rem !important; }
+.modal-box p { font-size: 1.2rem !important; }
+
 .modal-box input {
     display: block;
     width: 100%;
-    max-width: 400px;
-    margin: 40px auto;
+    max-width: 100%;
+    margin: 30px auto;
     border: none;
     border-bottom: 2px solid #1a1a1a;
-    font-size: 2.5rem;
-    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.8rem;
+    font-family: inherit;
     text-align: center;
     outline: none;
     background: transparent;
@@ -634,19 +642,74 @@ nav {
 }
 
 @media (max-width: 1024px) {
+    .cursor, .cursor-follower { display: none !important; }
     .container { padding: 0 30px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 80px; text-align: center; }
-    .hero-text p { margin: 0 auto 60px; }
+    
+    .hero { min-height: auto; padding: 100px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 60px; text-align: center; }
+    .hero-text h1 { font-size: clamp(3rem, 10vw, 5rem); }
+    .hero-text p { margin: 0 auto 40px; }
+    
     .movie-specs { gap: 40px; font-size: 1.8rem; }
+    .logo { font-size: 2rem; }
+    .nav-links { gap: 20px; }
 }
 
 @media (max-width: 768px) {
-    .section-title { font-size: 3rem; }
-    .gold-ticket { width: 90vw; } /* Responsive width for mobile */
-    .ticket-image { height: 300px; }
-    #ticket-movie-name { font-size: 1.8rem !important; }
-    #ticket-user-name { font-size: 1.6rem; }
-    .letter-content .msg { font-size: 3rem; }
+    .section-title { font-size: 2.5rem; }
+    
+    .gold-ticket { 
+        width: 100%; 
+        height: auto; 
+        flex-direction: column; 
+        max-width: 380px;
+        margin: 0 auto;
+    }
+    
+    .ticket-main {
+        flex: none;
+        padding: 30px;
+        border-right: none;
+        border-bottom: 1.5px dashed rgba(212, 175, 55, 0.3);
+    }
+    
+    .ticket-stub {
+        flex: none;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    
+    #ticket-movie-name { font-size: 2.2rem !important; }
+    #ticket-user-name { font-size: 1.8rem; }
+    .ticket-details-row { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+    
+    .letter-content h3 { font-size: 3.5rem; }
+    .letter-content .msg { font-size: 3rem; line-height: 1.2; }
+    .movie-specs { font-size: 1.8rem; padding: 20px 0; }
+    
+    .btn-sketch { font-size: 2.5rem; padding: 10px 40px; }
+    .signature p:last-child { font-size: 3rem !important; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 20px; }
+    .hero-text h1 { font-size: 3.5rem; }
+    .modal-box { padding: 30px 20px; }
+    .modal-box h2 { font-size: 2rem !important; }
+    .modal-box p { font-size: 1.1rem !important; }
+    .btn-sketch { width: 100%; padding: 10px 20px; }
+    
+    .movie-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links { display: none; }
+    nav { justify-content: center; }
 }
 
 
