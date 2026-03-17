@@ -3,52 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | Response Tracker</title>
+    <title>CYM | Admin Insights</title>
     <link rel="stylesheet" href="admin.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <div class="scanline"></div>
     <div class="admin-container">
         <header>
-            <h1>Response Dashboard</h1>
-            <p>Tracking responses for: <strong>Made In Korea</strong></p>
+            <h1>Premiere Command</h1>
+            <p style="opacity: 0.6; letter-spacing: 2px;">Guest List & Analytics</p>
         </header>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <span class="label">Total Responses</span>
-                <span class="value" id="total-count">0</span>
+                <span class="label">Total Guests</span>
+                <span id="total-responses" class="value">0</span>
             </div>
-            <div class="stat-card positive">
-                <span class="label">Confirmations (YES)</span>
-                <span class="value" id="yes-count">0</span>
+            <div class="stat-card">
+                <span class="label">Confirmed</span>
+                <span id="confirmed-yes" class="value">0</span>
             </div>
-            <div class="stat-card negative">
-                <span class="label">Rejections (NO)</span>
-                <span class="value" id="no-count">0</span>
+            <div class="stat-card">
+                <span class="label">Premiere Hits</span>
+                <span id="regrets" class="value">0</span>
             </div>
         </div>
 
+        <button class="refresh-btn" onclick="fetchResponses()">Sync Records</button>
+
         <div class="table-container">
-            <table id="responses-table">
+            <table>
                 <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>Response</th>
-                        <th>Timestamp</th>
+                        <th>Guest Name</th>
+                        <th>Status</th>
+                        <th>Selected Premiere</th>
                     </tr>
                 </thead>
-                <tbody id="table-body">
-                    <!-- Rows will be added here -->
-                    <tr>
-                        <td colspan="3" style="text-align: center;">Loading data...</td>
-                    </tr>
+                <tbody id="responses-table-body">
+                    <!-- Responses will be injected here -->
                 </tbody>
             </table>
-        </div>
-        
-        <div style="margin-top: 20px; text-align: right;">
-            <button class="refresh-btn" onclick="fetchResponses()">Refresh Data</button>
         </div>
     </div>
 

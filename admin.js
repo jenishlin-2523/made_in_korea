@@ -22,7 +22,10 @@ async function fetchResponses() {
         renderTable(data);
     } catch (err) {
         console.error('Error fetching responses:', err);
-        document.getElementById('table-body').innerHTML = `<tr><td colspan="3" style="text-align: center; color: #d63031;">Error: ${err.message}</td></tr>`;
+        const tableBody = document.getElementById('responses-table-body');
+        if (tableBody) {
+            tableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: #ff4444;">Error: ${err.message}</td></tr>`;
+        }
     }
 }
 
@@ -31,16 +34,17 @@ function updateStats(data) {
     const yesCount = data.filter(r => r.response === 'YES').length;
     const noCount = data.filter(r => r.response === 'NO').length;
 
-    document.getElementById('total-count').innerText = totalCount;
-    document.getElementById('yes-count').innerText = yesCount;
-    document.getElementById('no-count').innerText = noCount;
+    document.getElementById('total-responses').innerText = totalCount;
+    document.getElementById('confirmed-yes').innerText = yesCount;
+    document.getElementById('regrets').innerText = noCount;
 }
 
 function renderTable(data) {
-    const tableBody = document.getElementById('table-body');
+    const tableBody = document.getElementById('responses-table-body');
+    if (!tableBody) return;
     
     if (data.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">No responses yet.</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 40px; opacity: 0.5;">No guests have responded yet.</td></tr>';
         return;
     }
 
@@ -48,7 +52,7 @@ function renderTable(data) {
         <tr>
             <td>${row.user_name}</td>
             <td class="${row.response === 'YES' ? 'resp-yes' : 'resp-no'}">${row.response}</td>
-            <td>${new Date(row.created_at).toLocaleString()}</td>
+            <td style="opacity: 0.7;">${row.movie_name || 'Made In Korea'}</td>
         </tr>
     `).join('');
 }

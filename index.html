@@ -4,47 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MADE IN KOREA | Portfolio Screening</title>
+    <title>CYM | Choose Your Movie</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
+    <div class="scanline"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div id="scroll-progress"></div>
     <div class="container">
         <nav>
-            <div class="logo">M.I.K</div>
+            <div class="logo shimmer-gold">CYM</div>
             <div class="nav-links">
-                <span>Directing</span>
-                <span>Story</span>
+                <span>Premiere</span>
+                <span>Movies</span>
                 <span>Contact</span>
             </div>
         </nav>
 
-        <section class="hero">
+        <section class="hero reveal">
             <div class="hero-grid">
                 <div class="hero-text">
                     <p>On Netflix</p>
-                    <h1>A Story Written in Seoul</h1>
-                    <p>
+                    <h1 id="hero-title">A Story Written in Seoul</h1>
+                    <p id="hero-desc">
                         Explore the cinematic journey of "Made In Korea," a Rise East production directed by RA.
                         Karthik. A portfolio of love, discovery, and the vibrant life of Seoul.
                     </p>
                 </div>
                 <div class="hero-image">
                     <div class="sketch-frame">
-                        <img src="assets/movie_main.jpg" alt="Main Poster Sketch">
+                        <img id="hero-img" src="assets/movie_main.jpg" alt="Main Poster Sketch">
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Movie Selection Section -->
+        <section class="movie-selection reveal">
+            <h2 class="section-title">Select Your Premiere</h2>
+            <div class="movie-grid">
+                <!-- Movies will be injected here by JS -->
             </div>
         </section>
     </div>
 
     <!-- The Personal Invitation Section -->
-    <section class="invitation-wrap">
+    <section class="invitation-wrap reveal" id="invitation-section">
         <div class="container">
             <div class="letter-content">
                 <h3>A Special Note</h3>
-                <p class="to">Hi Herin,</p>
+                <p class="to">Hi Guest,</p>
                 <div class="msg">"Can you join today's Night with me?"</div>
 
                 <p style="font-size: 1.8rem; opacity: 0.7;">Messaging regarding a movie show at tonight's premiere.</p>
@@ -52,15 +64,15 @@
                 <div class="movie-specs">
                     <div class="spec">
                         <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Movie</strong>
-                        Made In Korea
+                        <span id="spec-movie">Made In Korea</span>
                     </div>
                     <div class="spec">
                         <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Genre</strong>
-                        Love
+                        <span id="spec-genre">Love</span>
                     </div>
                     <div class="spec">
                         <strong style="display: block; font-size: 1rem; text-transform: uppercase;">Time</strong>
-                        11:00 PM
+                        <span id="spec-time">11:00 PM</span>
                     </div>
                 </div>
 
@@ -80,7 +92,7 @@
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Modal for Name -->
     <div class="overlay" id="name-overlay">
         <div class="modal-box">
             <h2 style="font-size: 3.5rem;">One Sec...</h2>
@@ -90,6 +102,32 @@
         </div>
     </div>
 
+    <!-- Ticket Modal -->
+    <div class="overlay" id="ticket-overlay">
+        <div class="modal-box ticket-container">
+            <div id="gold-ticket" class="gold-ticket">
+                <div class="ticket-main">
+                    <div class="ticket-logo">CYM PREMIERE</div>
+                    <h1 id="ticket-movie-name">MADE IN KOREA</h1>
+                    <div class="ticket-details-row">
+                        <p><strong>DATE</strong> <span id="ticket-date">MARCH 17, 2024</span></p>
+                        <p><strong>TIME</strong> <span id="ticket-time">11:00 PM</span></p>
+                    </div>
+                    <div class="ticket-footer-text">ADMIT ONE | SPECIAL ACCESS PREMIERE</div>
+                </div>
+                <div class="ticket-stub">
+                    <div class="stub-label">GUEST ADMISSION</div>
+                    <div id="ticket-user-name">GUEST NAME</div>
+                    <div class="ticket-id">#CYM-0000</div>
+                </div>
+            </div>
+            <div class="ticket-actions">
+                <button class="btn-premium" onclick="downloadTicket()">DOWNLOAD PASS</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 
