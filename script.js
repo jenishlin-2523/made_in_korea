@@ -9,8 +9,8 @@ const movies = [
         id: 1,
         name: "Made In Korea",
         genre: "Romance / Drama",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "A story written in Seoul. Cinematic journey of love and discovery.",
         image: "assets/made_in_korea.jpg"
     },
@@ -18,8 +18,8 @@ const movies = [
         id: 2,
         name: "With Love",
         genre: "Romance",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "A heartfelt tale of connections that transcend boundaries.",
         image: "assets/with_love.jpg"
     },
@@ -27,8 +27,8 @@ const movies = [
         id: 3,
         name: "Little Hearts",
         genre: "Romance",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "Small moments, big emotions. A celebration of life's little joys.",
         image: "assets/little_hearts.jpg"
     },
@@ -36,8 +36,8 @@ const movies = [
         id: 4,
         name: "Pennum Porattum",
         genre: "Drama / Social",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "A powerful narrative of strength, resilience, and survival.",
         image: "assets/pennum_porattum.jpg"
     },
@@ -45,8 +45,8 @@ const movies = [
         id: 5,
         name: "Shyam Singha Roy",
         genre: "Romance",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "A transcendental love story spanning decades and destinies.",
         image: "assets/shyam_singha_roy.jpg"
     },
@@ -54,8 +54,8 @@ const movies = [
         id: 6,
         name: "Hey Sinamika",
         genre: "Romance",
-        time: "11:00 PM",
-        date: "March 17, 2024",
+        time: "11:30 PM",
+        date: "March 18, 2026",
         description: "A breezy, colorful exploration of modern relationships.",
         image: "assets/hey_sinamika.jpg"
     }
